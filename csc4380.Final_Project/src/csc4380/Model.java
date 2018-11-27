@@ -7,6 +7,7 @@ package csc4380;
 
 import java.beans.*;
 import java.io.Serializable;
+import java.util.ArrayList;
 
 /**
  *
@@ -46,6 +47,11 @@ public class Model implements Serializable {
         current_user = user;
     }
     
+    String getCurrent_user()
+    {
+        return current_user;
+    }
+    
     void setStatus(String s) {
         status = s;
     }
@@ -64,9 +70,23 @@ public class Model implements Serializable {
         
     }
     
+    void purchaseVehicle(String vehicleName)
+    {
+        databaseBean.purchaseVehicle(vehicleName, current_user);
+    }
     
+    boolean userOwnsVehicle(String vehicleName)
+    {
+        return databaseBean.userOwnsVehicle(vehicleName, current_user);
+    }
     
-    
+    //Still needs to be implemented more completely
+    ArrayList<Score> getHighScores() {
+        ArrayList<Score> scores = databaseBean.getScores();
+        ArrayList<Score> highScores = new ArrayList<Score>();
+        //Get just the highest scores
+        return highScores;
+    }
     
     
     

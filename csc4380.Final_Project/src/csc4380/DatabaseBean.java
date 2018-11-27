@@ -11,6 +11,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -44,9 +45,9 @@ public class DatabaseBean implements Serializable {
          try {
             System.setProperty("jdbc.drivers", jdbc_drivers);
  
-            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/project3db", "root", "trailblazers");
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/final_projectdb", "root", "trailblazers");
             st = con.createStatement();
-            st.executeUpdate("INSERT INTO user_info (username, password, nativeCountry, lastConversion) VALUES ('"+uName+"', '"+password+"', 'US', 'EURO')");
+            st.executeUpdate("INSERT INTO user_info (username, password, balance) VALUES ('"+uName+"', '"+password+"', '0')");
             tempStatus ="signup success";
             
 
@@ -85,7 +86,7 @@ public class DatabaseBean implements Serializable {
         try {
             System.setProperty("jdbc.drivers", jdbc_drivers);
  
-            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/project3db", "root", "trailblazers");
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/final_projectdb", "root", "trailblazers");
             st = con.createStatement();
             rs = st.executeQuery("SELECT * FROM user_info WHERE username = '"+uName+"' AND password = '"+password+"'");
 
@@ -130,7 +131,7 @@ public class DatabaseBean implements Serializable {
         try {
             System.setProperty("jdbc.drivers", jdbc_drivers);
  
-            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/project3db", "root", "trailblazers");
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/final_projectdb", "root", "trailblazers");
             st = con.createStatement();
             st.executeUpdate("DELETE FROM user_info WHERE username = '"+currentUser+"'");
 
@@ -162,8 +163,22 @@ public class DatabaseBean implements Serializable {
         return tempStatus;
     }
     
+    //Connect to the database, and create a new element in the purchased_vehicles 
+    //table that says that current_user owns vehicleName
+     void purchaseVehicle(String vehicleName, String current_user) {
+        
+    }
     
+    //Connect to the database, and return true if current_user owns vehicleName, and false otherwise
+     boolean userOwnsVehicle(String vehicleName, String current_user) {
+        return true;
+    }
     
+     //This will pull all of the past scores from the database and return them
+     ArrayList<Score> getScores()
+     {
+         return null;
+     }
     
     
     
@@ -187,5 +202,9 @@ public class DatabaseBean implements Serializable {
     public void removePropertyChangeListener(PropertyChangeListener listener) {
         propertySupport.removePropertyChangeListener(listener);
     }
+
+    
+
+   
     
 }
