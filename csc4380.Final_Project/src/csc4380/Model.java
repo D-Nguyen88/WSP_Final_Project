@@ -20,9 +20,59 @@ public class Model implements Serializable {
     
     private PropertyChangeSupport propertySupport;
     
+    DatabaseBean databaseBean;
+    
+    private String status;
+    
+    private String current_user;
+    
+    
+    
     public Model() {
         propertySupport = new PropertyChangeSupport(this);
+        databaseBean = new DatabaseBean();
     }
+    
+    void createUser(String uName, String password) {
+        
+       status = databaseBean.createUser(uName, password);
+    }
+    
+    void login(String uName, String password) {
+        status = databaseBean.login(uName, password, this);   
+    }
+    
+    void setCurrent_user(String user) {
+        current_user = user;
+    }
+    
+    void setStatus(String s) {
+        status = s;
+    }
+    
+    String getStatus() {
+        return status;
+    }
+    
+    void deleteUser() {
+        String tempStatus = databaseBean.deleteUser(current_user);
+        if(tempStatus.equals("signup failed"))
+        {
+            status = "signup failed";
+        }
+        current_user = "";
+        
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     public String getSampleProperty() {
         return sampleProperty;
@@ -41,5 +91,7 @@ public class Model implements Serializable {
     public void removePropertyChangeListener(PropertyChangeListener listener) {
         propertySupport.removePropertyChangeListener(listener);
     }
+
+    
     
 }

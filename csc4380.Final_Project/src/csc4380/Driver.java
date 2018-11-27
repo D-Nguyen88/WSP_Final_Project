@@ -10,8 +10,10 @@ package csc4380;
  * @author aaron
  */
 public class Driver {
-    Model model = new Model();
-    Controller controller = new Controller(model);
-    View v = new View(controller);
-    
+    public static void main(String[] args)
+    {
+        Model model = new Model();
+        Controller controller = new Controller(model);
+        View v = new View(controller);
+    }
 }
