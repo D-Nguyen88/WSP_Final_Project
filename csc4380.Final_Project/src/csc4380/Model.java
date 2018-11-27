@@ -88,6 +88,10 @@ public class Model implements Serializable {
         return highScores;
     }
     
+    int getBalance(){
+        return databaseBean.getBalance(current_user);
+    }
+    
     
     
     

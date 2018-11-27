@@ -179,6 +179,11 @@ public class DatabaseBean implements Serializable {
      {
          return null;
      }
+     
+     //Method will return the balance of the specified user
+     int getBalance(String current_user){
+         return 0;
+     }
     
     
     
