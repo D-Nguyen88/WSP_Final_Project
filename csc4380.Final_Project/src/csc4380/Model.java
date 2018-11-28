@@ -25,7 +25,7 @@ public class Model implements Serializable {
     
     private String status;
     
-    private String current_user;
+    private String current_user = "";
     
     
     
@@ -90,6 +90,11 @@ public class Model implements Serializable {
     
     int getBalance(){
         return databaseBean.getBalance(current_user);
+    }
+    
+    void setBalance(int newBalance)
+    {
+        databaseBean.setBalance(newBalance, current_user);
     }
     
     

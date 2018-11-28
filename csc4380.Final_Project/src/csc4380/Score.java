@@ -10,5 +10,12 @@ package csc4380;
  * @author aaron
  */
 public class Score {
+    String username;
+    int score;
+    public Score(String u, int s)
+    {
+        username = u;
+        score = s;
+    }
     
 }

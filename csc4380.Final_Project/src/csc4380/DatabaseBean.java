@@ -166,18 +166,120 @@ public class DatabaseBean implements Serializable {
     //Connect to the database, and create a new element in the purchased_vehicles 
     //table that says that current_user owns vehicleName
      void purchaseVehicle(String vehicleName, String current_user) {
-        
+        try {
+            System.setProperty("jdbc.drivers", jdbc_drivers);
+ 
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/final_projectdb", "root", "trailblazers");
+            st = con.createStatement();
+            st.executeUpdate("INSERT INTO purchased_vehicles (username, car) VALUES ('"+current_user+"', '"+vehicleName+"')");
+            
+
+        } catch (SQLException ex) {
+            //Logger lgr = Logger.getLogger(Version.class.getName());
+            //lgr.log(Level.SEVERE, ex.getMessage(), ex);
+               Logger.getLogger(Model.class.getName()).log(Level.SEVERE, null, ex);
+               
+        } finally {
+            try {
+                if (rs != null) {
+                    rs.close();
+                }
+                if (st != null) {
+                    st.close();
+                }
+                if (con != null) {
+                    con.close();
+                }
+
+            } catch (SQLException ex) {
+               // Logger lgr = Logger.getLogger(Version.class.getName());
+                Logger.getLogger(Model.class.getName()).log(Level.SEVERE, null, ex);
+                //lgr.log(Level.WARNING, ex.getMessage(), ex);
+                            }
+        }
     }
     
     //Connect to the database, and return true if current_user owns vehicleName, and false otherwise
      boolean userOwnsVehicle(String vehicleName, String current_user) {
-        return true;
+        try {
+            System.setProperty("jdbc.drivers", jdbc_drivers);
+ 
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/final_projectdb", "root", "trailblazers");
+            st = con.createStatement();
+            rs = st.executeQuery("SELECT * FROM purchased_vehicles WHERE username = '"+current_user+"' AND car = '"+vehicleName+"'");
+
+            if (rs.next()) {
+                return true;
+            } else {
+                return false;
+            }
+
+        } catch (SQLException ex) {
+            //Logger lgr = Logger.getLogger(Version.class.getName());
+            //lgr.log(Level.SEVERE, ex.getMessage(), ex);
+               Logger.getLogger(Model.class.getName()).log(Level.SEVERE, null, ex);
+               
+        } finally {
+            try {
+                if (rs != null) {
+                    rs.close();
+                }
+                if (st != null) {
+                    st.close();
+                }
+                if (con != null) {
+                    con.close();
+                }
+
+            } catch (SQLException ex) {
+               // Logger lgr = Logger.getLogger(Version.class.getName());
+                Logger.getLogger(Model.class.getName()).log(Level.SEVERE, null, ex);
+                //lgr.log(Level.WARNING, ex.getMessage(), ex);
+                            }
+        }
+        return false;
     }
     
      //This will pull all of the past scores from the database and return them
      ArrayList<Score> getScores()
      {
-         return null;
+         ArrayList<Score> scores = new ArrayList<Score>();
+         try {
+            System.setProperty("jdbc.drivers", jdbc_drivers);
+ 
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/final_projectdb", "root", "trailblazers");
+            st = con.createStatement();
+            rs = st.executeQuery("SELECT * FROM highscores");
+
+            int i = 0;
+            while (rs.next()) {
+                scores.add(new Score(rs.getString(0), rs.getInt(1)));
+            }
+
+        } catch (SQLException ex) {
+            //Logger lgr = Logger.getLogger(Version.class.getName());
+            //lgr.log(Level.SEVERE, ex.getMessage(), ex);
+               Logger.getLogger(Model.class.getName()).log(Level.SEVERE, null, ex);
+               
+        } finally {
+            try {
+                if (rs != null) {
+                    rs.close();
+                }
+                if (st != null) {
+                    st.close();
+                }
+                if (con != null) {
+                    con.close();
+                }
+
+            } catch (SQLException ex) {
+               // Logger lgr = Logger.getLogger(Version.class.getName());
+                Logger.getLogger(Model.class.getName()).log(Level.SEVERE, null, ex);
+                //lgr.log(Level.WARNING, ex.getMessage(), ex);
+                            }
+        }
+         return scores;
      }
      
      //Method will return the balance of the specified user
@@ -185,6 +287,9 @@ public class DatabaseBean implements Serializable {
          return 0;
      }
     
+     void setBalance(int newBalance, String current_user){
+         //Code for changing the value of the balance for current user to newBalance
+     }
     
     
     
