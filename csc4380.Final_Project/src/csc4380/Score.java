@@ -18,4 +18,18 @@ public class Score {
         score = s;
     }
     
+    public String print()
+    {
+        return username + ": " + score;
+    }
+    
+    public String getUserName()
+    {
+        return username;
+    }
+    public int getScore()
+    {
+        return score;
+    }
+    
 }
