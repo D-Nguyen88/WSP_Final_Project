@@ -17,4 +17,12 @@ public class Controller {
     public Controller(Model m) {
         model = m;
     }
+
+    int getMoney() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    void setMoney(int m)
+    {
+        //to be implemented, connected to the model
+    }
 }

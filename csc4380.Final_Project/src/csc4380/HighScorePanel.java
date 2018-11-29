@@ -29,26 +29,17 @@ public class HighScorePanel extends javax.swing.JPanel {
      * @throws java.io.FileNotFoundException
      */
     final static int NUM_SCORES = 5;
-    static HighScoreObject[] highScores = new HighScoreObject[NUM_SCORES];
+    static Score[] highScores = new Score[NUM_SCORES];
     
     
-    public HighScorePanel() throws FileNotFoundException {
+    public HighScorePanel(Score[] scores) throws FileNotFoundException {
         initComponents();
+        highScores = scores;
         setScores();
     }
     
     public void setScores() throws FileNotFoundException
     {
-        String localDir = System.getProperty("user.dir");
-        File inputFile = new File(localDir + "\\src\\resources\\scores.csv");
-        Scanner scan = new Scanner(inputFile);
-        //System.out.println(scan.next());
-        for(int i = 0; i < NUM_SCORES; i++)
-        {
-            highScores[i] = new HighScoreObject(scan.next(), scan.next());
-            
-            //System.out.println(highScores[i].print());
-        }
             lblScore0.setText(highScores[0].print());
             lblScore1.setText(highScores[1].print());
             lblScore2.setText(highScores[2].print());
@@ -135,11 +126,14 @@ public class HighScorePanel extends javax.swing.JPanel {
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {                                        
         // TODO add your handling code here:
-        View topFrame = (View) SwingUtilities.getWindowAncestor(this);
-        topFrame.changeContext("main screen");
-    }                                       
+        //View topFrame = (View) SwingUtilities.getWindowAncestor(this);
+        //topFrame.changeContext("main screen");
+    }
 
-    private void formComponentShown(java.awt.event.ComponentEvent evt) {                                    
+    
+
+    private void formComponentShown(java.awt.event.ComponentEvent evt) {          
+        /*
         try{
         setScores();
         }catch(FileNotFoundException e){try {
@@ -148,9 +142,10 @@ public class HighScorePanel extends javax.swing.JPanel {
                 Logger.getLogger(HighScorePanel.class.getName()).log(Level.SEVERE, null, ex);
             }
 }
+*/
     }                                   
 
-    public HighScoreObject getHighScore(int i)
+    public Score getHighScore(int i)
     {
         return highScores[i];
     }
@@ -168,9 +163,9 @@ public class HighScorePanel extends javax.swing.JPanel {
     
     boolean isHighScore(int score)
     {
-        for(HighScoreObject h : highScores)
+        for(Score h : highScores)
         {
-            if(Integer.parseInt(h.getScore()) < score)
+            if(h.getScore() < score)
             {
                 return true;
             }
@@ -178,19 +173,19 @@ public class HighScorePanel extends javax.swing.JPanel {
         return false;
     }
     
-    void putNewHighScore(String name, String score)
+    void putNewHighScore(String name, int score)
     {
         int indexOfSmallest = 0;
-        int smallestVal = Integer.parseInt(highScores[0].getScore());
+        int smallestVal = highScores[0].getScore();
         for(int i = 0; i < 5; i++)
         {
-            if(Integer.parseInt(highScores[i].getScore()) < smallestVal)
+            if(highScores[i].getScore() < smallestVal)
             {
-                smallestVal = Integer.parseInt(highScores[i].getScore());
+                smallestVal = highScores[i].getScore();
                 indexOfSmallest = i;
             }
         }
-        highScores[indexOfSmallest] = new HighScoreObject(name, score);
+        highScores[indexOfSmallest] = new Score(name, score);
     }
 }
 

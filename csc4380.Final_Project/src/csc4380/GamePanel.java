@@ -168,7 +168,7 @@ public class GamePanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         generateObstacles(this);
         topFrame = (View) SwingUtilities.getWindowAncestor(this);
-        userCar = new ControlledCar(320, 300, 100, 100, 0, 0, 10, topFrame.currentVehicle);
+        userCar = new ControlledCar(320, 300, 100, 100, 0, 0, 10, topFrame.getCurrentVehicle());
         this.add(userCar);
         userCar.requestFocusInWindow();
         Timer collTime = new Timer(10, new ActionListener() {

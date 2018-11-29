@@ -5,6 +5,9 @@
  */
 package csc4380;
 
+import java.awt.BorderLayout;
+import javax.swing.JPanel;
+
 /**
  *
  * @author aaron
@@ -13,7 +16,9 @@ public class View extends javax.swing.JFrame {
 
     Controller controller;
     
+    int lastScore;
     
+    String currentVehicle;
     
     /**
      * Creates new form View
@@ -22,8 +27,41 @@ public class View extends javax.swing.JFrame {
         controller = c;
         initComponents();
         setVisible(true);
+        lastScore = 0;
+        // Here we need to set the default value of currentVehicle. currentVehicle = "";
+
     }
 
+    public void setLastScore(int s)
+    {
+        lastScore = s;
+    }
+    public void changeContext(String con)
+    {
+        //This code will change the card displayed from the game panel to 
+        //panel represented by the passed in string
+    }
+    
+    //This method returns the string that represents the current color of the selected
+    //vehicle
+    public String getCurrentVehicle() {
+      return currentVehicle;  
+    }
+    
+    public void setCurrentVehicle(String c)
+    {
+        currentVehicle = c;
+    }
+    public int getMoney()
+    {
+        return controller.getMoney();
+    }
+    public void setMoney(int m)
+    {
+        controller.setMoney(m);
+    }
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
