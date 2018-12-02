@@ -6,6 +6,8 @@
 package csc4380;
 
 import java.awt.BorderLayout;
+import java.awt.CardLayout;
+import java.awt.event.WindowEvent;
 import java.io.FileNotFoundException;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -176,9 +178,9 @@ public class View extends javax.swing.JFrame {
     {
         //This code will change the card displayed from the game panel to 
         //panel represented by the passed in string
-        if ( con.equals("OutOfGamePanel")) {
-            
-        }
+        
+        CardLayout cards = (CardLayout)OutOfGamePanel.getParent().getLayout();
+        cards.show(getContentPane(), con);
     }
     
     //This method returns the string that represents the current color of the selected
@@ -484,8 +486,18 @@ public class View extends javax.swing.JFrame {
         menuPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         btnNewGame.setText("New Game");
+        btnNewGame.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNewGameActionPerformed(evt);
+            }
+        });
 
         btnQuit.setText("Quit");
+        btnQuit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnQuitActionPerformed(evt);
+            }
+        });
 
         menuTitle.setText("Main Menu");
 
@@ -568,6 +580,16 @@ public class View extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnNewGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewGameActionPerformed
+        // TODO add your handling code here:
+        this.changeContext("Game");
+    }//GEN-LAST:event_btnNewGameActionPerformed
+
+    private void btnQuitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnQuitActionPerformed
+        // TODO add your handling code here:
+        System.exit(0);
+    }//GEN-LAST:event_btnQuitActionPerformed
 
     /**
      * @param args the command line arguments

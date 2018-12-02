@@ -492,11 +492,17 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="New Game"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnNewGameActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="btnQuit">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Quit"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnQuitActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="menuTitle">
               <Properties>
