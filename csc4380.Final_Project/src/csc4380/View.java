@@ -36,7 +36,7 @@ public class View extends javax.swing.JFrame {
 //    
 //    Score[] scores;
 //    
-//    GamePanel gamePanel;
+    GamePanel gamePanel;
     
     /**
      * Creates new form View
@@ -46,6 +46,10 @@ public class View extends javax.swing.JFrame {
         lastScore = 0;
         
         initComponents();
+        
+        gamePanel = new GamePanel();
+//        InGamePanel.add(gamePanel);
+        getContentPane().add(gamePanel, "gamePanel");
         
         carsOwned = new Boolean[9];
         for(int i = 0; i < carsOwned.length; i++)
@@ -583,7 +587,7 @@ public class View extends javax.swing.JFrame {
 
     private void btnNewGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewGameActionPerformed
         // TODO add your handling code here:
-        this.changeContext("Game");
+        this.changeContext("gamePanel");
     }//GEN-LAST:event_btnNewGameActionPerformed
 
     private void btnQuitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnQuitActionPerformed

@@ -52,7 +52,7 @@ public class GamePanel extends javax.swing.JPanel {
         initComponents();
         topFrame = (View) SwingUtilities.getWindowAncestor(this);
         String localDir = System.getProperty("user.dir");
-        img = Toolkit.getDefaultToolkit().createImage(localDir + "\\src\\resources\\streetBackground.png");
+        img = Toolkit.getDefaultToolkit().createImage(localDir + "/src/resources/streetBackground.png");
         currentScore = 0;
         done = false;
 //        this.setBackground(Color.black);
@@ -72,7 +72,7 @@ public class GamePanel extends javax.swing.JPanel {
                 int num = rand.nextInt(7);
                 int xLoc = num * 100+ 20;
                 System.out.println("Balls");
-                panel.add(new Car(xLoc, 0, 0, 1, 1, 1, 10, "\\src\\resources\\red_car.png"));
+                panel.add(new Car(xLoc, 0, 0, 1, 1, 1, 10, "/src/resources/red_car.png"));
     //            try {
     //                Thread.sleep(1000);
     //            } catch(Exception e) {
@@ -176,15 +176,14 @@ public class GamePanel extends javax.swing.JPanel {
             public void actionPerformed(ActionEvent e) {
                 if (collisions()) {
                     gameOver();
-                    return;
                 }
             }
         });
         collTime.start();
-        String localDir = System.getProperty("user.dir");;
+        String localDir = System.getProperty("user.dir");
         //The following audio file was pulled off of opengameart.org. All credit for it goes to Zander Noriega
         try { 
-            audioInputStream =  AudioSystem.getAudioInputStream(new File(localDir + "\\src\\resources\\Game_bgm.wav"));
+            audioInputStream =  AudioSystem.getAudioInputStream(new File(localDir + "/src/resources/Game_bgm.wav"));
             clip = AudioSystem.getClip(); 
             clip.open(audioInputStream); 
             clip.loop(Clip.LOOP_CONTINUOUSLY); 
