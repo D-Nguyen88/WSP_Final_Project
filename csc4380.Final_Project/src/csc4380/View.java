@@ -6,6 +6,9 @@
 package csc4380;
 
 import java.awt.BorderLayout;
+import java.io.FileNotFoundException;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JPanel;
 
 /**
@@ -20,14 +23,147 @@ public class View extends javax.swing.JFrame {
     
     String currentVehicle;
     
+    ImageIcon redCar, blueCar, greenCar, purpleCar, yellowCar, redTruck, blueTruck,
+            greenTruck, purpleTruck, yellowTruck;
+    JButton btnRedCar, btnBlueCar, btnGreenCar, btnPurpleCar, btnYellowCar, btnRedTruck,
+            btnBlueTruck, btnGreenTruck, btnPurpleTruck, btnYellowTruck;
+    
+    Boolean[] carsOwned;
+    
+//    HighScorePanel highPanel;
+//    
+//    Score[] scores;
+//    
+//    GamePanel gamePanel;
+    
     /**
      * Creates new form View
      */
     public View(Controller c) {
         controller = c;
-        initComponents();
-        setVisible(true);
         lastScore = 0;
+        
+        initComponents();
+        
+        carsOwned = new Boolean[9];
+        for(int i = 0; i < carsOwned.length; i++)
+        {
+            carsOwned[i] = false;
+        }
+        
+         String localDir = System.getProperty("user.dir");
+         
+        redCar = new ImageIcon(localDir + "/src/resources/red_car.png");
+        btnRedCar = new JButton(redCar);
+        
+        btnRedCar.setSize(55,60);
+        btnRedCar.setLocation(60, 100);
+        //button.setEditable(false);
+        shopPanel.add(btnRedCar);
+        
+        
+        blueCar = new ImageIcon(localDir + "/src/resources/blue_car.png");
+        btnBlueCar = new JButton(blueCar);
+        
+        btnBlueCar.setSize(55,60);
+        btnBlueCar.setLocation(190, 100);
+        //button.setEditable(false);
+        shopPanel.add(btnBlueCar);
+        
+        
+        
+        greenCar = new ImageIcon(localDir + "/src/resources/green_car.png");
+        btnGreenCar = new JButton(greenCar);
+        
+        btnGreenCar.setSize(55,60);
+        btnGreenCar.setLocation(320, 100);
+        //button.setEditable(false);
+        shopPanel.add(btnGreenCar);
+        
+        
+        
+        purpleCar = new ImageIcon(localDir + "/src/resources/purple_car.png");
+        btnPurpleCar = new JButton(purpleCar);
+        
+        btnPurpleCar.setSize(55,60);
+        btnPurpleCar.setLocation(450, 100);
+        //button.setEditable(false);
+        shopPanel.add(btnPurpleCar);
+        
+        
+        
+        yellowCar = new ImageIcon(localDir + "/src/resources/yellow_car.png");
+        btnYellowCar = new JButton(yellowCar);
+        
+        btnYellowCar.setSize(55,60);
+        btnYellowCar.setLocation(580, 100);
+        //button.setEditable(false);
+        shopPanel.add(btnYellowCar);
+        
+        
+        
+        redTruck = new ImageIcon(localDir + "/src/resources/red_truck.png");
+        btnRedTruck = new JButton(redTruck);
+        
+        btnRedTruck.setSize(55,60);
+        btnRedTruck.setLocation(60, 220);
+        //button.setEditable(false);
+        shopPanel.add(btnRedTruck);
+        
+        
+        
+        blueTruck = new ImageIcon(localDir + "/src/resources/blue_truck.png");
+        btnBlueTruck = new JButton(blueTruck);
+        
+        btnBlueTruck.setSize(55,60);
+        btnBlueTruck.setLocation(190, 220);
+        //button.setEditable(false);
+        shopPanel.add(btnBlueTruck);
+        
+        
+        
+        greenTruck = new ImageIcon(localDir + "/src/resources/green_truck.png");
+        btnGreenTruck = new JButton(greenTruck);
+        
+        btnGreenTruck.setSize(55,60);
+        btnGreenTruck.setLocation(320, 220);
+        //button.setEditable(false);
+        shopPanel.add(btnGreenTruck);
+        
+        
+        
+        purpleTruck = new ImageIcon(localDir + "/src/resources/purple_truck.png");
+        btnPurpleTruck = new JButton(purpleTruck);
+        
+        btnPurpleTruck.setSize(55,60);
+        btnPurpleTruck.setLocation(450, 220);
+        //button.setEditable(false);
+        shopPanel.add(btnPurpleTruck);
+        
+        
+        
+        yellowTruck = new ImageIcon(localDir + "/src/resources/yellow_truck.png");
+        btnYellowTruck = new JButton(yellowTruck);
+        
+        btnYellowTruck.setSize(55,60);
+        btnYellowTruck.setLocation(580, 220);
+        //button.setEditable(false);
+        shopPanel.add(btnYellowTruck);
+        
+        
+        
+//        scores = new Score[5];
+//        try {
+//            highPanel = new HighScorePanel(scores);
+//        } catch(FileNotFoundException e) {
+//            System.err.println(e);
+//        }
+//        gamePanel = new GamePanel();
+//        OutOfGamePanel.add(highPanel);
+//        InGamePanel.add(gamePanel);
+        
+        setVisible(true);
+        
         // Here we need to set the default value of currentVehicle. currentVehicle = "";
 
     }
@@ -40,6 +176,9 @@ public class View extends javax.swing.JFrame {
     {
         //This code will change the card displayed from the game panel to 
         //panel represented by the passed in string
+        if ( con.equals("OutOfGamePanel")) {
+            
+        }
     }
     
     //This method returns the string that represents the current color of the selected
@@ -71,18 +210,361 @@ public class View extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        pauseDialog = new javax.swing.JDialog();
+        jLabel2 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        OutOfGamePanel = new javax.swing.JPanel();
+        shopPanel = new javax.swing.JPanel();
+        lblRedCar = new javax.swing.JLabel();
+        lblBlueCar = new javax.swing.JLabel();
+        lblGreenCar = new javax.swing.JLabel();
+        lblPurpleCar = new javax.swing.JLabel();
+        lblGoldCar = new javax.swing.JLabel();
+        lblRedTruck = new javax.swing.JLabel();
+        lblBlueTruck = new javax.swing.JLabel();
+        lblGreenTruck = new javax.swing.JLabel();
+        lblPurpleTruck = new javax.swing.JLabel();
+        lblGoldTruck = new javax.swing.JLabel();
+        lblCurrVehicle = new javax.swing.JLabel();
+        lblCurrVehicleVar = new javax.swing.JLabel();
+        lblMoney = new javax.swing.JLabel();
+        lblMoneyAmt = new javax.swing.JLabel();
+        lblStoreTitle = new javax.swing.JLabel();
+        scorePanel = new javax.swing.JPanel();
+        lblScore0 = new javax.swing.JLabel();
+        lblScore1 = new javax.swing.JLabel();
+        lblScore2 = new javax.swing.JLabel();
+        lblScore3 = new javax.swing.JLabel();
+        lblScore4 = new javax.swing.JLabel();
+        lblScoreTitle = new javax.swing.JLabel();
+        userLabelBalance = new javax.swing.JPanel();
+        userLabelUsername = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        userLabelUVal = new javax.swing.JLabel();
+        userLabelBVal = new javax.swing.JLabel();
+        userLabelTitle = new javax.swing.JLabel();
+        menuPanel = new javax.swing.JPanel();
+        btnNewGame = new javax.swing.JButton();
+        btnQuit = new javax.swing.JButton();
+        menuTitle = new javax.swing.JLabel();
+        InGamePanel = new javax.swing.JPanel();
+        GamePanel = new javax.swing.JPanel();
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        jLabel2.setText("PAUSED");
+
+        jButton1.setText("Return");
+
+        javax.swing.GroupLayout pauseDialogLayout = new javax.swing.GroupLayout(pauseDialog.getContentPane());
+        pauseDialog.getContentPane().setLayout(pauseDialogLayout);
+        pauseDialogLayout.setHorizontalGroup(
+            pauseDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pauseDialogLayout.createSequentialGroup()
+                .addGroup(pauseDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pauseDialogLayout.createSequentialGroup()
+                        .addGap(87, 87, 87)
+                        .addComponent(jLabel2))
+                    .addGroup(pauseDialogLayout.createSequentialGroup()
+                        .addGap(76, 76, 76)
+                        .addComponent(jButton1)))
+                .addContainerGap(75, Short.MAX_VALUE))
+        );
+        pauseDialogLayout.setVerticalGroup(
+            pauseDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pauseDialogLayout.createSequentialGroup()
+                .addGap(42, 42, 42)
+                .addComponent(jLabel2)
+                .addGap(18, 18, 18)
+                .addComponent(jButton1)
+                .addContainerGap(32, Short.MAX_VALUE))
+        );
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new java.awt.CardLayout());
+
+        shopPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        lblRedCar.setText("$0");
+
+        lblBlueCar.setText("$2,000");
+
+        lblGreenCar.setText("$3,000");
+
+        lblPurpleCar.setText("$4,000");
+
+        lblGoldCar.setText("$5,000");
+
+        lblRedTruck.setText("$6,000");
+
+        lblBlueTruck.setText("$7,000");
+
+        lblGreenTruck.setText("$8,000");
+
+        lblPurpleTruck.setText("$9,000");
+
+        lblGoldTruck.setText("$10,000");
+
+        lblCurrVehicle.setText("Current Vehicle:");
+
+        lblCurrVehicleVar.setText("Red Car");
+
+        lblMoney.setText("Money:");
+
+        lblMoneyAmt.setText("$");
+
+        lblStoreTitle.setText("Store");
+
+        javax.swing.GroupLayout shopPanelLayout = new javax.swing.GroupLayout(shopPanel);
+        shopPanel.setLayout(shopPanelLayout);
+        shopPanelLayout.setHorizontalGroup(
+            shopPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, shopPanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblCurrVehicle)
+                .addGap(10, 10, 10)
+                .addComponent(lblCurrVehicleVar)
+                .addGap(150, 150, 150)
+                .addComponent(lblMoney)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblMoneyAmt, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(21, 21, 21))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, shopPanelLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(lblStoreTitle)
+                .addGap(320, 320, 320))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, shopPanelLayout.createSequentialGroup()
+                .addGap(69, 69, 69)
+                .addGroup(shopPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(lblRedTruck, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblRedCar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(91, 91, 91)
+                .addGroup(shopPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblBlueCar)
+                    .addComponent(lblBlueTruck))
+                .addGap(64, 64, 64)
+                .addGroup(shopPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblGreenCar, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lblGreenTruck, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addGap(88, 88, 88)
+                .addGroup(shopPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblPurpleCar, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lblPurpleTruck, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addGap(93, 93, 93)
+                .addGroup(shopPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblGoldCar)
+                    .addComponent(lblGoldTruck))
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        shopPanelLayout.setVerticalGroup(
+            shopPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(shopPanelLayout.createSequentialGroup()
+                .addGap(9, 9, 9)
+                .addComponent(lblStoreTitle)
+                .addGap(18, 18, 18)
+                .addGroup(shopPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblCurrVehicle)
+                    .addComponent(lblCurrVehicleVar)
+                    .addComponent(lblMoney)
+                    .addComponent(lblMoneyAmt))
+                .addGap(18, 18, 18)
+                .addGroup(shopPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblRedCar)
+                    .addComponent(lblBlueCar)
+                    .addComponent(lblGreenCar)
+                    .addComponent(lblPurpleCar)
+                    .addComponent(lblGoldCar))
+                .addGap(106, 106, 106)
+                .addGroup(shopPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblRedTruck)
+                    .addComponent(lblBlueTruck)
+                    .addComponent(lblGreenTruck)
+                    .addComponent(lblPurpleTruck)
+                    .addComponent(lblGoldTruck))
+                .addContainerGap(122, Short.MAX_VALUE))
+        );
+
+        scorePanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        lblScore0.setText("jLabel1");
+
+        lblScore1.setText("jLabel2");
+
+        lblScore2.setText("jLabel3");
+
+        lblScore3.setText("jLabel4");
+
+        lblScore4.setText("jLabel5");
+
+        lblScoreTitle.setText("High Scores");
+
+        javax.swing.GroupLayout scorePanelLayout = new javax.swing.GroupLayout(scorePanel);
+        scorePanel.setLayout(scorePanelLayout);
+        scorePanelLayout.setHorizontalGroup(
+            scorePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(scorePanelLayout.createSequentialGroup()
+                .addGroup(scorePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(scorePanelLayout.createSequentialGroup()
+                        .addGap(40, 40, 40)
+                        .addGroup(scorePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblScore1)
+                            .addComponent(lblScore0)
+                            .addComponent(lblScore2)
+                            .addComponent(lblScore3)
+                            .addComponent(lblScore4)))
+                    .addGroup(scorePanelLayout.createSequentialGroup()
+                        .addGap(26, 26, 26)
+                        .addComponent(lblScoreTitle)))
+                .addContainerGap(58, Short.MAX_VALUE))
+        );
+        scorePanelLayout.setVerticalGroup(
+            scorePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, scorePanelLayout.createSequentialGroup()
+                .addContainerGap(17, Short.MAX_VALUE)
+                .addComponent(lblScoreTitle)
+                .addGap(18, 18, 18)
+                .addComponent(lblScore0)
+                .addGap(18, 18, 18)
+                .addComponent(lblScore1)
+                .addGap(18, 18, 18)
+                .addComponent(lblScore2)
+                .addGap(18, 18, 18)
+                .addComponent(lblScore3)
+                .addGap(18, 18, 18)
+                .addComponent(lblScore4)
+                .addGap(17, 17, 17))
+        );
+
+        userLabelBalance.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        userLabelUsername.setText("Username:");
+
+        jLabel1.setText("Balance:");
+
+        userLabelUVal.setText("jLabel2");
+
+        userLabelBVal.setText("jLabel3");
+
+        userLabelTitle.setText("User Info");
+
+        javax.swing.GroupLayout userLabelBalanceLayout = new javax.swing.GroupLayout(userLabelBalance);
+        userLabelBalance.setLayout(userLabelBalanceLayout);
+        userLabelBalanceLayout.setHorizontalGroup(
+            userLabelBalanceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(userLabelBalanceLayout.createSequentialGroup()
+                .addGroup(userLabelBalanceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(userLabelBalanceLayout.createSequentialGroup()
+                        .addGap(19, 19, 19)
+                        .addGroup(userLabelBalanceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(userLabelUsername)
+                            .addComponent(jLabel1))
+                        .addGap(38, 38, 38)
+                        .addGroup(userLabelBalanceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(userLabelBVal)
+                            .addComponent(userLabelUVal)))
+                    .addGroup(userLabelBalanceLayout.createSequentialGroup()
+                        .addGap(63, 63, 63)
+                        .addComponent(userLabelTitle)))
+                .addContainerGap(26, Short.MAX_VALUE))
+        );
+        userLabelBalanceLayout.setVerticalGroup(
+            userLabelBalanceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(userLabelBalanceLayout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addComponent(userLabelTitle)
+                .addGap(18, 18, 18)
+                .addGroup(userLabelBalanceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(userLabelUsername)
+                    .addComponent(userLabelUVal))
+                .addGap(18, 18, 18)
+                .addGroup(userLabelBalanceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(userLabelBVal))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        menuPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        btnNewGame.setText("New Game");
+
+        btnQuit.setText("Quit");
+
+        menuTitle.setText("Main Menu");
+
+        javax.swing.GroupLayout menuPanelLayout = new javax.swing.GroupLayout(menuPanel);
+        menuPanel.setLayout(menuPanelLayout);
+        menuPanelLayout.setHorizontalGroup(
+            menuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(menuPanelLayout.createSequentialGroup()
+                .addGroup(menuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(menuPanelLayout.createSequentialGroup()
+                        .addGap(113, 113, 113)
+                        .addGroup(menuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btnNewGame, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnQuit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(menuPanelLayout.createSequentialGroup()
+                        .addGap(125, 125, 125)
+                        .addComponent(menuTitle)))
+                .addContainerGap(120, Short.MAX_VALUE))
+        );
+        menuPanelLayout.setVerticalGroup(
+            menuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(menuPanelLayout.createSequentialGroup()
+                .addGap(18, 18, 18)
+                .addComponent(menuTitle)
+                .addGap(46, 46, 46)
+                .addComponent(btnNewGame)
+                .addGap(18, 18, 18)
+                .addComponent(btnQuit)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout OutOfGamePanelLayout = new javax.swing.GroupLayout(OutOfGamePanel);
+        OutOfGamePanel.setLayout(OutOfGamePanelLayout);
+        OutOfGamePanelLayout.setHorizontalGroup(
+            OutOfGamePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(OutOfGamePanelLayout.createSequentialGroup()
+                .addComponent(menuPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(scorePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(userLabelBalance, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(shopPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        OutOfGamePanelLayout.setVerticalGroup(
+            OutOfGamePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, OutOfGamePanelLayout.createSequentialGroup()
+                .addGroup(OutOfGamePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(scorePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(userLabelBalance, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(menuPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(shopPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        getContentPane().add(OutOfGamePanel, "OutOfGame");
+
+        javax.swing.GroupLayout GamePanelLayout = new javax.swing.GroupLayout(GamePanel);
+        GamePanel.setLayout(GamePanelLayout);
+        GamePanelLayout.setHorizontalGroup(
+            GamePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 400, Short.MAX_VALUE)
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        GamePanelLayout.setVerticalGroup(
+            GamePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 300, Short.MAX_VALUE)
         );
+
+        javax.swing.GroupLayout InGamePanelLayout = new javax.swing.GroupLayout(InGamePanel);
+        InGamePanel.setLayout(InGamePanelLayout);
+        InGamePanelLayout.setHorizontalGroup(
+            InGamePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(GamePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        InGamePanelLayout.setVerticalGroup(
+            InGamePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(GamePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        getContentPane().add(InGamePanel, "Game");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -93,5 +575,44 @@ public class View extends javax.swing.JFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel GamePanel;
+    private javax.swing.JPanel InGamePanel;
+    private javax.swing.JPanel OutOfGamePanel;
+    private javax.swing.JButton btnNewGame;
+    private javax.swing.JButton btnQuit;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel lblBlueCar;
+    private javax.swing.JLabel lblBlueTruck;
+    private javax.swing.JLabel lblCurrVehicle;
+    private javax.swing.JLabel lblCurrVehicleVar;
+    private javax.swing.JLabel lblGoldCar;
+    private javax.swing.JLabel lblGoldTruck;
+    private javax.swing.JLabel lblGreenCar;
+    private javax.swing.JLabel lblGreenTruck;
+    private javax.swing.JLabel lblMoney;
+    private javax.swing.JLabel lblMoneyAmt;
+    private javax.swing.JLabel lblPurpleCar;
+    private javax.swing.JLabel lblPurpleTruck;
+    private javax.swing.JLabel lblRedCar;
+    private javax.swing.JLabel lblRedTruck;
+    private javax.swing.JLabel lblScore0;
+    private javax.swing.JLabel lblScore1;
+    private javax.swing.JLabel lblScore2;
+    private javax.swing.JLabel lblScore3;
+    private javax.swing.JLabel lblScore4;
+    private javax.swing.JLabel lblScoreTitle;
+    private javax.swing.JLabel lblStoreTitle;
+    private javax.swing.JPanel menuPanel;
+    private javax.swing.JLabel menuTitle;
+    private javax.swing.JDialog pauseDialog;
+    private javax.swing.JPanel scorePanel;
+    private javax.swing.JPanel shopPanel;
+    private javax.swing.JLabel userLabelBVal;
+    private javax.swing.JPanel userLabelBalance;
+    private javax.swing.JLabel userLabelTitle;
+    private javax.swing.JLabel userLabelUVal;
+    private javax.swing.JLabel userLabelUsername;
     // End of variables declaration//GEN-END:variables
 }
