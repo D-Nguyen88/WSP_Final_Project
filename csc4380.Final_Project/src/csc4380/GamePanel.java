@@ -113,6 +113,7 @@ public class GamePanel extends javax.swing.JPanel {
         done = true;
         this.removeAll();
         comps = this.getComponents();
+        topFrame.changeContext("OutOfGame");
 //        for(Component comp : comps)
 //        {
 //            this.remove(comp);
