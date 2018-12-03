@@ -298,6 +298,10 @@ public class View extends javax.swing.JFrame {
         userLabelUVal = new javax.swing.JLabel();
         userLabelBVal = new javax.swing.JLabel();
         userLabelTitle = new javax.swing.JLabel();
+        userLabelPB = new javax.swing.JLabel();
+        userLabelLast = new javax.swing.JLabel();
+        userLabelPBVal = new javax.swing.JLabel();
+        userLabelLVal = new javax.swing.JLabel();
         menuPanel = new javax.swing.JPanel();
         btnNewGame = new javax.swing.JButton();
         btnQuit = new javax.swing.JButton();
@@ -408,7 +412,7 @@ public class View extends javax.swing.JFrame {
                 .addGroup(shopPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblGoldCar)
                     .addComponent(lblGoldTruck))
-                .addGap(0, 84, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         shopPanelLayout.setVerticalGroup(
             shopPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -501,6 +505,14 @@ public class View extends javax.swing.JFrame {
 
         userLabelTitle.setText("User Info");
 
+        userLabelPB.setText("PB Score:");
+
+        userLabelLast.setText("Last Score:");
+
+        userLabelPBVal.setText("jLabel5");
+
+        userLabelLVal.setText("jLabel6");
+
         javax.swing.GroupLayout userLabelBalanceLayout = new javax.swing.GroupLayout(userLabelBalance);
         userLabelBalance.setLayout(userLabelBalanceLayout);
         userLabelBalanceLayout.setHorizontalGroup(
@@ -511,11 +523,15 @@ public class View extends javax.swing.JFrame {
                         .addGap(19, 19, 19)
                         .addGroup(userLabelBalanceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(userLabelUsername)
-                            .addComponent(jLabel1))
+                            .addComponent(jLabel1)
+                            .addComponent(userLabelPB)
+                            .addComponent(userLabelLast))
                         .addGap(38, 38, 38)
                         .addGroup(userLabelBalanceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(userLabelBVal)
-                            .addComponent(userLabelUVal)))
+                            .addComponent(userLabelUVal)
+                            .addComponent(userLabelPBVal)
+                            .addComponent(userLabelLVal)))
                     .addGroup(userLabelBalanceLayout.createSequentialGroup()
                         .addGap(63, 63, 63)
                         .addComponent(userLabelTitle)))
@@ -534,6 +550,14 @@ public class View extends javax.swing.JFrame {
                 .addGroup(userLabelBalanceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(userLabelBVal))
+                .addGap(18, 18, 18)
+                .addGroup(userLabelBalanceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(userLabelPB)
+                    .addComponent(userLabelPBVal))
+                .addGap(18, 18, 18)
+                .addGroup(userLabelBalanceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(userLabelLast)
+                    .addComponent(userLabelLVal))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -590,7 +614,7 @@ public class View extends javax.swing.JFrame {
                 .addComponent(btnDelete)
                 .addGap(18, 18, 18)
                 .addComponent(btnQuit)
-                .addContainerGap(25, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout OutOfGamePanelLayout = new javax.swing.GroupLayout(OutOfGamePanel);
@@ -622,7 +646,7 @@ public class View extends javax.swing.JFrame {
         GamePanel.setLayout(GamePanelLayout);
         GamePanelLayout.setHorizontalGroup(
             GamePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 688, Short.MAX_VALUE)
+            .addGap(0, 708, Short.MAX_VALUE)
         );
         GamePanelLayout.setVerticalGroup(
             GamePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -702,6 +726,10 @@ public class View extends javax.swing.JFrame {
     private javax.swing.JPanel shopPanel;
     private javax.swing.JLabel userLabelBVal;
     private javax.swing.JPanel userLabelBalance;
+    private javax.swing.JLabel userLabelLVal;
+    private javax.swing.JLabel userLabelLast;
+    private javax.swing.JLabel userLabelPB;
+    private javax.swing.JLabel userLabelPBVal;
     private javax.swing.JLabel userLabelTitle;
     private javax.swing.JLabel userLabelUVal;
     private javax.swing.JLabel userLabelUsername;
