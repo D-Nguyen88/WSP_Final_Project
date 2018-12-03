@@ -13,6 +13,7 @@ import java.awt.GridLayout;
 import java.awt.Toolkit;
 import java.awt.event.WindowEvent;
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JDialog;
@@ -379,6 +380,15 @@ public class View extends javax.swing.JFrame {
 	    dialog.setVisible(true);
     }
     
+    
+    void setScores(ArrayList<Score> highscores)
+    {
+        lblScore0.setText(highscores.get(0).print());
+        lblScore1.setText(highscores.get(1).print());
+        lblScore2.setText(highscores.get(2).print());
+        lblScore3.setText(highscores.get(3).print());
+        lblScore4.setText(highscores.get(4).print());
+    }
     
     
     

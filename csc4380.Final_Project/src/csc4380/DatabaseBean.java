@@ -253,7 +253,7 @@ public class DatabaseBean implements Serializable {
 
             int i = 0;
             while (rs.next()) {
-                scores.add(new Score(rs.getString(0), rs.getInt(1)));
+                scores.add(new Score(rs.getString(1), rs.getInt(2)));
             }
 
         } catch (SQLException ex) {

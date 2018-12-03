@@ -5,6 +5,8 @@
  */
 package csc4380;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author aaron
@@ -233,6 +235,7 @@ public class Controller {
         v.setVisible(true);
         loggedIn = true;
         v.setUserInfo();
+        v.setScores(model.getHighScores());
     }
     
     public void btnSignup(View v)
@@ -242,6 +245,7 @@ public class Controller {
         v.setVisible(true);
         loggedIn = true;
         v.setUserInfo();
+        v.setScores(model.getHighScores());
     }
     
     
@@ -254,4 +258,6 @@ public class Controller {
     {
         return loggedIn;
     }
+    
+    
 }
