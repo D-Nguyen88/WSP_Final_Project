@@ -171,6 +171,7 @@ public class View extends javax.swing.JFrame {
         setVisible(true);
         
         // Here we need to set the default value of currentVehicle. currentVehicle = "";
+        currentVehicle = "/src/resources/red_car.png";
 
     }
 
