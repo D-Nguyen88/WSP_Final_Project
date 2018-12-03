@@ -8,12 +8,18 @@ package csc4380;
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
 import java.awt.Dimension;
+import java.awt.Font;
+import java.awt.GridLayout;
 import java.awt.Toolkit;
 import java.awt.event.WindowEvent;
 import java.io.FileNotFoundException;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JDialog;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
+import javax.swing.border.EmptyBorder;
 
 /**
  *
@@ -51,6 +57,8 @@ public class View extends javax.swing.JFrame {
         lastScore = 0;
         
         initComponents();
+        
+        createLoginDialog();
         
         Dimension screen = Toolkit.getDefaultToolkit().getScreenSize();
         int x = (int) ((screen.getWidth() - getWidth()) /2);
@@ -256,6 +264,100 @@ public class View extends javax.swing.JFrame {
         getContentPane().add(gamePanel, "gamePanel");
     }
     
+    public String getLoginUser()
+    {
+        return login_userTextField.getText();
+    }
+    public String getLoginPass()
+    {
+        return login_passTextField.getText();
+    }
+    public String getRegisterUser()
+    {
+        return register_userTextField.getText();
+    }
+    public String getRegisterPass()
+    {
+        return register_passTextField.getText();
+    }
+    
+    
+    JTextField login_userTextField;
+    JTextField login_passTextField; 
+    JTextField register_userTextField; 
+    JTextField register_passTextField; 
+    
+    public void createLoginDialog()
+    {
+        JDialog dialog; 
+	JPanel dialogPanel; 
+	
+	// Dialog Components
+
+        JTextField register_countryTextField; 
+        
+	JButton loginBtn; 
+	JButton signupBtn; 
+        
+        dialogPanel = new JPanel(); 
+		
+		dialogPanel.setLayout(new GridLayout(0, 2, 40, 10));
+		dialogPanel.setBorder(new EmptyBorder(20, 20, 20, 20));
+		
+		JLabel loginLabel = new JLabel("Login");
+		JLabel registerLabel = new JLabel("Register"); 
+		loginBtn = new JButton("Login"); 
+		signupBtn = new JButton("Sign Up"); 
+		
+                // Initialize TextFields 
+                login_userTextField = new JTextField("user Login"); 
+                login_passTextField = new JTextField("pass Login"); 
+                register_userTextField = new JTextField("user register"); 
+                register_passTextField = new JTextField("pass register"); 
+                register_countryTextField = new JTextField("country register");                
+		
+		loginLabel.setFont(new Font("Sans-Serif", Font.PLAIN, 25)); 
+		registerLabel.setFont(new Font("Sans-Serif", Font.PLAIN, 25));
+		
+		dialogPanel.add(loginLabel);
+		dialogPanel.add(registerLabel);
+		
+		dialogPanel.add(new JLabel("Existing Username")); 
+		dialogPanel.add(new JLabel("New Username"));
+		
+		dialogPanel.add(login_userTextField);
+		dialogPanel.add(register_userTextField);
+
+		dialogPanel.add(new JLabel("Existing Password"));
+		dialogPanel.add(new JLabel("New Password"));
+		
+		dialogPanel.add(login_passTextField); 
+		dialogPanel.add(register_passTextField);
+		
+		dialogPanel.add(new JLabel("")); 
+		dialogPanel.add(new JLabel("Native Country"));
+		dialogPanel.add(new JLabel("")); 
+		dialogPanel.add(register_countryTextField);
+			
+		dialogPanel.add(loginBtn);
+		dialogPanel.add(signupBtn);
+		dialogPanel.add(new JLabel("")); 
+		dialogPanel.add(new JLabel(""));
+
+		// Set Action Listeners for Login/Register 
+		loginBtn.addActionListener(e -> controller.btnLogin(this));
+		signupBtn.addActionListener(e -> controller.btnSignup(this));
+						
+		dialog = new JDialog();
+		dialog.add(dialogPanel);
+		dialog.setSize(500, 400);
+		dialog.setLocationRelativeTo(null);
+	    dialog.setVisible(true);
+    }
+    
+    
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -412,7 +514,7 @@ public class View extends javax.swing.JFrame {
                 .addGroup(shopPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblGoldCar)
                     .addComponent(lblGoldTruck))
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(0, 89, Short.MAX_VALUE))
         );
         shopPanelLayout.setVerticalGroup(
             shopPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -509,9 +611,9 @@ public class View extends javax.swing.JFrame {
 
         userLabelLast.setText("Last Score:");
 
-        userLabelPBVal.setText("jLabel5");
+        userLabelPBVal.setText("2000");
 
-        userLabelLVal.setText("jLabel6");
+        userLabelLVal.setText("1000");
 
         javax.swing.GroupLayout userLabelBalanceLayout = new javax.swing.GroupLayout(userLabelBalance);
         userLabelBalance.setLayout(userLabelBalanceLayout);
@@ -646,7 +748,7 @@ public class View extends javax.swing.JFrame {
         GamePanel.setLayout(GamePanelLayout);
         GamePanelLayout.setHorizontalGroup(
             GamePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 708, Short.MAX_VALUE)
+            .addGap(0, 693, Short.MAX_VALUE)
         );
         GamePanelLayout.setVerticalGroup(
             GamePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

@@ -230,6 +230,17 @@ public class Controller {
     
     
     
+    public void btnLogin(View v)
+    {
+        model.login(v.getLoginUser(), v.getLoginPass());
+        v.hideDialog();
+        v.setVisible(true);
+    }
+    
+    public void btnSignup(View v)
+    {
+        model.createUser(v.getRegisterUser(), v.getRegisterPass());
+    }
     
     
     String getCurrentUser()
