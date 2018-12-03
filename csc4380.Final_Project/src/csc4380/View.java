@@ -360,7 +360,7 @@ public class View extends javax.swing.JFrame {
                 .addGroup(shopPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblGoldCar)
                     .addComponent(lblGoldTruck))
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(0, 84, Short.MAX_VALUE))
         );
         shopPanelLayout.setVerticalGroup(
             shopPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -542,7 +542,7 @@ public class View extends javax.swing.JFrame {
                 .addComponent(btnDelete)
                 .addGap(18, 18, 18)
                 .addComponent(btnQuit)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(25, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout OutOfGamePanelLayout = new javax.swing.GroupLayout(OutOfGamePanel);
@@ -574,11 +574,11 @@ public class View extends javax.swing.JFrame {
         GamePanel.setLayout(GamePanelLayout);
         GamePanelLayout.setHorizontalGroup(
             GamePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGap(0, 688, Short.MAX_VALUE)
         );
         GamePanelLayout.setVerticalGroup(
             GamePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGap(0, 556, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout InGamePanelLayout = new javax.swing.GroupLayout(InGamePanel);
