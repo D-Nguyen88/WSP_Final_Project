@@ -32,6 +32,20 @@ public class Controller {
     {
         model.addNewScore(s);
     }    
+        //to be implemented, connected to the model
+        
+    
+    void highScore(){
+       // model.getHighScore();
+       
+        
+    }
+    
+    void btnDeleteAction(View v){
+        model.getCurrent_user();
+        model.deleteUser();
+    }
+    
     void btnRedCarAction(View v)
     {
             v.setCurrentVehicle("/src/resources/red_car.png");
