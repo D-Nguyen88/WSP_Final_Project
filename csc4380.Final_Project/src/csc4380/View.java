@@ -254,6 +254,7 @@ public class View extends javax.swing.JFrame {
         btnNewGame = new javax.swing.JButton();
         btnQuit = new javax.swing.JButton();
         menuTitle = new javax.swing.JLabel();
+        btnDelete = new javax.swing.JButton();
         InGamePanel = new javax.swing.JPanel();
         GamePanel = new javax.swing.JPanel();
 
@@ -425,7 +426,7 @@ public class View extends javax.swing.JFrame {
         scorePanelLayout.setVerticalGroup(
             scorePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, scorePanelLayout.createSequentialGroup()
-                .addContainerGap(17, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(lblScoreTitle)
                 .addGap(18, 18, 18)
                 .addComponent(lblScore0)
@@ -506,6 +507,13 @@ public class View extends javax.swing.JFrame {
 
         menuTitle.setText("Main Menu");
 
+        btnDelete.setText("Delete User");
+        btnDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeleteActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout menuPanelLayout = new javax.swing.GroupLayout(menuPanel);
         menuPanel.setLayout(menuPanelLayout);
         menuPanelLayout.setHorizontalGroup(
@@ -513,13 +521,14 @@ public class View extends javax.swing.JFrame {
             .addGroup(menuPanelLayout.createSequentialGroup()
                 .addGroup(menuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(menuPanelLayout.createSequentialGroup()
+                        .addGap(125, 125, 125)
+                        .addComponent(menuTitle))
+                    .addGroup(menuPanelLayout.createSequentialGroup()
                         .addGap(113, 113, 113)
                         .addGroup(menuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(btnNewGame, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnQuit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addGroup(menuPanelLayout.createSequentialGroup()
-                        .addGap(125, 125, 125)
-                        .addComponent(menuTitle)))
+                            .addComponent(btnQuit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnDelete, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap(120, Short.MAX_VALUE))
         );
         menuPanelLayout.setVerticalGroup(
@@ -527,8 +536,10 @@ public class View extends javax.swing.JFrame {
             .addGroup(menuPanelLayout.createSequentialGroup()
                 .addGap(18, 18, 18)
                 .addComponent(menuTitle)
-                .addGap(46, 46, 46)
+                .addGap(18, 18, 18)
                 .addComponent(btnNewGame)
+                .addGap(18, 18, 18)
+                .addComponent(btnDelete)
                 .addGap(18, 18, 18)
                 .addComponent(btnQuit)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -596,6 +607,10 @@ public class View extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_btnQuitActionPerformed
 
+    private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnDeleteActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -605,6 +620,7 @@ public class View extends javax.swing.JFrame {
     private javax.swing.JPanel GamePanel;
     private javax.swing.JPanel InGamePanel;
     private javax.swing.JPanel OutOfGamePanel;
+    private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnNewGame;
     private javax.swing.JButton btnQuit;
     private javax.swing.JButton jButton1;
