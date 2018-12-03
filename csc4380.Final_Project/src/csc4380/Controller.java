@@ -11,13 +11,11 @@ package csc4380;
  */
 public class Controller {
     Model model;
-    int balance;
     
     
     
     public Controller(Model m) {
         model = m;
-        balance = m.getBalance();
     }
 
     int getMoney() {
@@ -229,22 +227,33 @@ public class Controller {
     }
     
     
-    
+    boolean loggedIn = false;
     public void btnLogin(View v)
     {
         model.login(v.getLoginUser(), v.getLoginPass());
         v.hideDialog();
         v.setVisible(true);
+        loggedIn = true;
+        v.setUserInfo();
     }
     
     public void btnSignup(View v)
     {
         model.createUser(v.getRegisterUser(), v.getRegisterPass());
+        v.hideDialog();
+        v.setVisible(true);
+        loggedIn = true;
+        v.setUserInfo();
     }
     
     
     String getCurrentUser()
     {
         return model.getCurrent_user();
+    }
+    
+    Boolean loggedIn()
+    {
+        return loggedIn;
     }
 }

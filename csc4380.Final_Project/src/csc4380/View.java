@@ -56,9 +56,11 @@ public class View extends javax.swing.JFrame {
         controller = c;
         lastScore = 0;
         
+        setVisible(false);
         initComponents();
         
-        createLoginDialog();
+        
+        
         
         Dimension screen = Toolkit.getDefaultToolkit().getScreenSize();
         int x = (int) ((screen.getWidth() - getWidth()) /2);
@@ -195,18 +197,29 @@ public class View extends javax.swing.JFrame {
 //        gamePanel = new GamePanel();
 //        OutOfGamePanel.add(highPanel);
 //        InGamePanel.add(gamePanel);
-        
-        setVisible(true);
-        
-        // Here we need to set the default value of currentVehicle. currentVehicle = "";
         currentVehicle = "/src/resources/red_car.png";
+
+        createLoginDialog();
+        
+        while (!c.loggedIn())
+        {
+        }
+
+        // Here we need to set the default value of currentVehicle. currentVehicle = "";
         
         
+        
+        
+
+
+    }
+    
+    public void setUserInfo()
+    {
         lblMoneyAmt.setText("$" + controller.getMoney());
         userLabelBVal.setText("$" + controller.getMoney());
         
-        userLabelUVal.setText(c.getCurrentUser());
-
+        userLabelUVal.setText(controller.getCurrentUser());
     }
     
     public void updateMoney()
@@ -281,7 +294,14 @@ public class View extends javax.swing.JFrame {
         return register_passTextField.getText();
     }
     
+    public void hideDialog()
+    {
+        dialogPanel.setVisible(false);
+    }
     
+    
+    JDialog dialog; 
+    JPanel dialogPanel; 
     JTextField login_userTextField;
     JTextField login_passTextField; 
     JTextField register_userTextField; 
@@ -289,8 +309,7 @@ public class View extends javax.swing.JFrame {
     
     public void createLoginDialog()
     {
-        JDialog dialog; 
-	JPanel dialogPanel; 
+        
 	
 	// Dialog Components
 
@@ -310,11 +329,11 @@ public class View extends javax.swing.JFrame {
 		signupBtn = new JButton("Sign Up"); 
 		
                 // Initialize TextFields 
-                login_userTextField = new JTextField("user Login"); 
-                login_passTextField = new JTextField("pass Login"); 
-                register_userTextField = new JTextField("user register"); 
-                register_passTextField = new JTextField("pass register"); 
-                register_countryTextField = new JTextField("country register");                
+                login_userTextField = new JTextField(); 
+                login_passTextField = new JTextField(); 
+                register_userTextField = new JTextField(); 
+                register_passTextField = new JTextField(); 
+                register_countryTextField = new JTextField();                
 		
 		loginLabel.setFont(new Font("Sans-Serif", Font.PLAIN, 25)); 
 		registerLabel.setFont(new Font("Sans-Serif", Font.PLAIN, 25));
@@ -335,9 +354,7 @@ public class View extends javax.swing.JFrame {
 		dialogPanel.add(register_passTextField);
 		
 		dialogPanel.add(new JLabel("")); 
-		dialogPanel.add(new JLabel("Native Country"));
 		dialogPanel.add(new JLabel("")); 
-		dialogPanel.add(register_countryTextField);
 			
 		dialogPanel.add(loginBtn);
 		dialogPanel.add(signupBtn);

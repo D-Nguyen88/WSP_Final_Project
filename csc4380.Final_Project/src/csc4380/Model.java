@@ -35,7 +35,6 @@ public class Model implements Serializable {
         
         
         //This next part is temporary to test other functionality
-        login("aaron", "aaron");
     }
     
     void createUser(String uName, String password) {
