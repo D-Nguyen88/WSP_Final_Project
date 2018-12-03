@@ -7,6 +7,8 @@ package csc4380;
 
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import java.awt.event.WindowEvent;
 import java.io.FileNotFoundException;
 import javax.swing.ImageIcon;
@@ -42,10 +44,16 @@ public class View extends javax.swing.JFrame {
      * Creates new form View
      */
     public View(Controller c) {
+        
         controller = c;
         lastScore = 0;
         
         initComponents();
+        
+        Dimension screen = Toolkit.getDefaultToolkit().getScreenSize();
+        int x = (int) ((screen.getWidth() - getWidth()) /2);
+        int y = (int) ((screen.getHeight() -getHeight()) /2);
+        setLocation(x, y); 
         
         gamePanel = new GamePanel();
 //        InGamePanel.add(gamePanel);
@@ -66,6 +74,7 @@ public class View extends javax.swing.JFrame {
         btnRedCar.setLocation(60, 100);
         //button.setEditable(false);
         shopPanel.add(btnRedCar);
+        btnRedCar.addActionListener(e -> c.btnRedCarAction(this));
         
         
         blueCar = new ImageIcon(localDir + "/src/resources/blue_car.png");
@@ -75,6 +84,7 @@ public class View extends javax.swing.JFrame {
         btnBlueCar.setLocation(190, 100);
         //button.setEditable(false);
         shopPanel.add(btnBlueCar);
+        btnBlueCar.addActionListener(e -> c.btnBlueCarAction(this));
         
         
         
@@ -85,6 +95,7 @@ public class View extends javax.swing.JFrame {
         btnGreenCar.setLocation(320, 100);
         //button.setEditable(false);
         shopPanel.add(btnGreenCar);
+        btnGreenCar.addActionListener(e -> c.btnGreenCarAction(this));
         
         
         
@@ -95,6 +106,7 @@ public class View extends javax.swing.JFrame {
         btnPurpleCar.setLocation(450, 100);
         //button.setEditable(false);
         shopPanel.add(btnPurpleCar);
+        btnPurpleCar.addActionListener(e -> c.btnPurpleCarAction(this));
         
         
         
@@ -105,6 +117,7 @@ public class View extends javax.swing.JFrame {
         btnYellowCar.setLocation(580, 100);
         //button.setEditable(false);
         shopPanel.add(btnYellowCar);
+        btnYellowCar.addActionListener(e -> c.btnYellowCarAction(this));
         
         
         
@@ -115,6 +128,7 @@ public class View extends javax.swing.JFrame {
         btnRedTruck.setLocation(60, 220);
         //button.setEditable(false);
         shopPanel.add(btnRedTruck);
+        btnRedTruck.addActionListener(e -> c.btnRedTruckAction(this));
         
         
         
@@ -125,6 +139,7 @@ public class View extends javax.swing.JFrame {
         btnBlueTruck.setLocation(190, 220);
         //button.setEditable(false);
         shopPanel.add(btnBlueTruck);
+        btnBlueTruck.addActionListener(e -> c.btnBlueTruckAction(this));
         
         
         
@@ -135,6 +150,7 @@ public class View extends javax.swing.JFrame {
         btnGreenTruck.setLocation(320, 220);
         //button.setEditable(false);
         shopPanel.add(btnGreenTruck);
+        btnGreenTruck.addActionListener(e -> c.btnGreenTruckAction(this));
         
         
         
@@ -145,6 +161,7 @@ public class View extends javax.swing.JFrame {
         btnPurpleTruck.setLocation(450, 220);
         //button.setEditable(false);
         shopPanel.add(btnPurpleTruck);
+        btnPurpleTruck.addActionListener(e -> c.btnPurpleTruckAction(this));
         
         
         
@@ -155,6 +172,7 @@ public class View extends javax.swing.JFrame {
         btnYellowTruck.setLocation(580, 220);
         //button.setEditable(false);
         shopPanel.add(btnYellowTruck);
+        btnYellowTruck.addActionListener(e -> c.btnYellowTruckAction(this));
         
         
         
@@ -172,7 +190,22 @@ public class View extends javax.swing.JFrame {
         
         // Here we need to set the default value of currentVehicle. currentVehicle = "";
         currentVehicle = "/src/resources/red_car.png";
+        
+        
+        lblMoneyAmt.setText("$" + controller.getMoney());
+        userLabelBVal.setText("$" + controller.getMoney());
 
+    }
+    
+    public void updateMoney()
+    {
+        lblMoneyAmt.setText("$" + controller.getMoney());
+        userLabelBVal.setText("$" + controller.getMoney());
+    }
+    
+    public void setCurrentVehicleText(String s)
+    {
+        lblCurrVehicleVar.setText(s);
     }
 
     public void setLastScore(int s)
