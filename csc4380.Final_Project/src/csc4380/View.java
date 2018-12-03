@@ -59,7 +59,7 @@ public class View extends javax.swing.JFrame {
         
         setVisible(false);
         initComponents();
-        
+        btnDelete.addActionListener(e -> c.btnDeleteAction(this));
         
         
         

@@ -40,8 +40,8 @@ public class Controller {
     }
     
     void btnDeleteAction(View v){
-        model.getCurrent_user();
         model.deleteUser();
+        System.exit(0);
     }
     
     void btnRedCarAction(View v)

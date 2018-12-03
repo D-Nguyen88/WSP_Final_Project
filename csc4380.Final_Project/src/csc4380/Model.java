@@ -65,12 +65,7 @@ public class Model implements Serializable {
     }
     
     void deleteUser() {
-        String tempStatus = databaseBean.deleteUser(current_user);
-        if(tempStatus.equals("signup failed"))
-        {
-            status = "signup failed";
-        }
-        current_user = "";
+      String tempStatus = databaseBean.deleteUser(current_user);
         
     }
     
