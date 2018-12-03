@@ -244,6 +244,13 @@ public class View extends javax.swing.JFrame {
         controller.setMoney(m);
     }
     
+    //Controller add function  ----------------------
+    public void setHS0(String c) {
+           lblScore0.setText(c); 
+	}
+    
+    //end of Controller --------------------
+    
     public void addMoney(int m)
     {
         controller.setMoney(controller.getMoney()+m);

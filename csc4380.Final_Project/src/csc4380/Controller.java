@@ -35,10 +35,8 @@ public class Controller {
         //to be implemented, connected to the model
         
     
-    void highScore(){
-       // model.getHighScore();
-       
-        
+    void getHighScore(View v){
+        v.setHS0(model.getHighScores().toString());
     }
     
     void btnDeleteAction(View v){
