@@ -32,6 +32,10 @@ public class Model implements Serializable {
     public Model() {
         propertySupport = new PropertyChangeSupport(this);
         databaseBean = new DatabaseBean();
+        
+        
+        //This next part is temporary to test other functionality
+        login("aaron", "aaron");
     }
     
     void createUser(String uName, String password) {
@@ -98,7 +102,10 @@ public class Model implements Serializable {
         databaseBean.setBalance(newBalance, current_user);
     }
     
-    
+    void addNewScore(int s)
+    {
+        databaseBean.addNewScore(s, current_user);
+    }
     
     
     

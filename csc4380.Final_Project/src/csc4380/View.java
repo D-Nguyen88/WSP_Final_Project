@@ -214,7 +214,7 @@ public class View extends javax.swing.JFrame {
 
     public void setLastScore(int s)
     {
-        lastScore = s;
+        controller.setLastScore(s);
     }
     public void changeContext(String con)
     {
@@ -244,7 +244,10 @@ public class View extends javax.swing.JFrame {
         controller.setMoney(m);
     }
     
-    
+    public void addMoney(int m)
+    {
+        controller.setMoney(controller.getMoney()+m);
+    }
     
     public void resetGame()
     {

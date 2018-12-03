@@ -107,6 +107,9 @@ public class GamePanel extends javax.swing.JPanel {
     
     public void gameOver(){
         topFrame.setLastScore(currentScore);
+        topFrame.addMoney((int)currentScore/10);
+        System.out.println((int)currentScore/10);
+        topFrame.updateMoney();
         clip.close();
         //topFrame.changeContext("results");
         Component[] comps = this.getComponents();

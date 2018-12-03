@@ -17,16 +17,21 @@ public class Controller {
     
     public Controller(Model m) {
         model = m;
-        balance = 0;
+        balance = m.getBalance();
     }
 
     int getMoney() {
-        return balance;
+        return model.getBalance();
     }
     void setMoney(int m)
     {
-        //to be implemented, connected to the model
+        model.setBalance(m);
     }
+    
+    void setLastScore(int s)
+    {
+        model.addNewScore(s);
+    }    
     void btnRedCarAction(View v)
     {
             v.setCurrentVehicle("/src/resources/red_car.png");
@@ -39,10 +44,11 @@ public class Controller {
             v.setCurrentVehicle("/src/resources/blue_car.png");
             v.setCurrentVehicleText("Blue Car");
         }
-        else if(balance >= 2000)
+        else if(model.getBalance() >= 2000)
         {
             model.purchaseVehicle("blueCar");
-            balance -=2000;
+            model.setBalance(model.getBalance()-2000);
+            v.updateMoney();
             v.setCurrentVehicle("/src/resources/blue_car.png");
             v.setCurrentVehicleText("Blue Car");
         }
@@ -57,10 +63,11 @@ public class Controller {
             v.setCurrentVehicle("/src/resources/green_car.png");
             v.setCurrentVehicleText("Green Car");
         }
-        else if(balance >= 3000)
+        else if(model.getBalance() >= 3000)
         {
             model.purchaseVehicle("greenCar");
-            balance -=3000;
+            model.setBalance(model.getBalance()-3000);
+            v.updateMoney();
             v.setCurrentVehicle("/src/resources/green_car.png");
             v.setCurrentVehicleText("Green Car");
         }
@@ -75,12 +82,13 @@ public class Controller {
             v.setCurrentVehicle("/src/resources/purple_car.png");
             v.setCurrentVehicleText("Purple Car");
         }
-        else if(balance >= 4000)
+        else if(model.getBalance() >= 4000)
         {
             model.purchaseVehicle("purpleCar");
-            balance -=4000;
+            model.setBalance(model.getBalance()-4000);
+            v.updateMoney();
             v.setCurrentVehicle("/src/resources/purple_car.png");
-            v.setCurrentVehicleText("purple Car");
+            v.setCurrentVehicleText("Purple Car");
         }
         else {
             System.out.println("You don't have enough money to complete this purchase");
@@ -93,10 +101,11 @@ public class Controller {
             v.setCurrentVehicle("/src/resources/yellow_car.png");
             v.setCurrentVehicleText("Yellow Car");
         }
-        else if(balance >= 5000)
+        else if(model.getBalance() >= 5000)
         {
             model.purchaseVehicle("yellowCar");
-            balance -=5000;
+            model.setBalance(model.getBalance()-5000);
+            v.updateMoney();
             v.setCurrentVehicle("/src/resources/yellow_car.png");
             v.setCurrentVehicleText("Yellow Car");
         }
@@ -111,10 +120,11 @@ public class Controller {
             v.setCurrentVehicle("/src/resources/red_truck.png");
             v.setCurrentVehicleText("Red Truck");
         }
-        else if(balance >= 6000)
+        else if(model.getBalance() >= 6000)
         {
             model.purchaseVehicle("redTruck");
-            balance -=6000;
+            model.setBalance(model.getBalance()-6000);
+            v.updateMoney();
             v.setCurrentVehicle("/src/resources/red_truck.png");
             v.setCurrentVehicleText("Red Truck");
         }
@@ -130,10 +140,11 @@ public class Controller {
             v.setCurrentVehicle("/src/resources/blue_truck.png");
             v.setCurrentVehicleText("Blue Truck");
         }
-        else if(balance >= 7000)
+        else if(model.getBalance() >= 7000)
         {
             model.purchaseVehicle("blueTruck");
-            balance -=7000;
+            model.setBalance(model.getBalance()-7000);
+            v.updateMoney();
             v.setCurrentVehicle("/src/resources/blue_truck.png");
             v.setCurrentVehicleText("Blue Truck");
         }
@@ -149,10 +160,11 @@ public class Controller {
             v.setCurrentVehicle("/src/resources/green_truck.png");
             v.setCurrentVehicleText("Green Truck");
         }
-        else if(balance >= 8000)
+        else if(model.getBalance() >= 8000)
         {
             model.purchaseVehicle("greenTruck");
-            balance -=8000;
+            model.setBalance(model.getBalance()-8000);
+            v.updateMoney();
             v.setCurrentVehicle("/src/resources/green_truck.png");
             v.setCurrentVehicleText("Green Truck");
         }
@@ -168,10 +180,11 @@ public class Controller {
             v.setCurrentVehicle("/src/resources/purple_truck.png");
             v.setCurrentVehicleText("Purple Truck");
         }
-        else if(balance >= 9000)
+        else if(model.getBalance() >= 9000)
         {
             model.purchaseVehicle("purpleTruck");
-            balance -=9000;
+            model.setBalance(model.getBalance()-9000);
+            v.updateMoney();
             v.setCurrentVehicle("/src/resources/purple_truck.png");
             v.setCurrentVehicleText("Purple Truck");
         }
@@ -187,10 +200,11 @@ public class Controller {
             v.setCurrentVehicle("/src/resources/yellow_truck.png");
             v.setCurrentVehicleText("Yellow Truck");
         }
-        else if(balance >= 10000)
+        else if(model.getBalance() >= 10000)
         {
             model.purchaseVehicle("yellowTruck");
-            balance -=10000;
+            model.setBalance(model.getBalance()-10000);
+            v.updateMoney();
             v.setCurrentVehicle("/src/resources/yellow_truck.png");
             v.setCurrentVehicleText("Yellow Truck");
         }
