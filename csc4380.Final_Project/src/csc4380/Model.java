@@ -87,10 +87,7 @@ public class Model implements Serializable {
     
     //Still needs to be implemented more completely
     ArrayList<Score> getHighScores() {
-        ArrayList<Score> scores = databaseBean.getScores();
-        ArrayList<Score> highScores = new ArrayList<Score>();
-        //Get just the highest scores
-        return highScores;
+        return databaseBean.getScores();
     }
     
     int getBalance(){

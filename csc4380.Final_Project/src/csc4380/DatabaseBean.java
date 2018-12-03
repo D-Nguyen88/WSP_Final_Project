@@ -249,7 +249,7 @@ public class DatabaseBean implements Serializable {
  
             con = DriverManager.getConnection("jdbc:mysql://localhost:3306/final_projectdb", "root", "trailblazers");
             st = con.createStatement();
-            rs = st.executeQuery("SELECT * FROM highscores");
+            rs = st.executeQuery("SELECT username, score FROM highscores ORDER BY score DESC LIMIT 5");
 
             int i = 0;
             while (rs.next()) {
