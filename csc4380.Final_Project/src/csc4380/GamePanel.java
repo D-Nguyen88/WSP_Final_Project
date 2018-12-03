@@ -72,7 +72,6 @@ public class GamePanel extends javax.swing.JPanel {
                 if (!done && active) {
                 int num = rand.nextInt(7);
                 int xLoc = num * 100+ 20;
-                System.out.println(done + "");
                 panel.add(new Car(xLoc, 0, 0, 1, 1, 1, 10, "/src/resources/red_car.png"));
     //            try {
     //                Thread.sleep(1000);
@@ -114,7 +113,6 @@ public class GamePanel extends javax.swing.JPanel {
         done = true;
         active = false;
         currentScore = 0;
-        System.out.println("Done is now " + done);
         this.removeAll();
         for(Component c : comps)
         {
@@ -182,7 +180,6 @@ public class GamePanel extends javax.swing.JPanel {
         generateObstacles(this);
         active = true;
         done = false;
-        System.out.println("I'm being shown!");
         topFrame = (View) SwingUtilities.getWindowAncestor(this);
         userCar = new ControlledCar(320, 490, 100, 100, 0, 0, 10, topFrame.getCurrentVehicle());
         this.add(userCar);
