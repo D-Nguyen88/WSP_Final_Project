@@ -199,4 +199,13 @@ public class Controller {
         }
         
     }
+    
+    
+    
+    
+    
+    String getCurrentUser()
+    {
+        return model.getCurrent_user();
+    }
 }

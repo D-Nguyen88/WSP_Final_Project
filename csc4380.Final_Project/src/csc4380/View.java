@@ -27,6 +27,8 @@ public class View extends javax.swing.JFrame {
     
     String currentVehicle;
     
+    
+    
     ImageIcon redCar, blueCar, greenCar, purpleCar, yellowCar, redTruck, blueTruck,
             greenTruck, purpleTruck, yellowTruck;
     JButton btnRedCar, btnBlueCar, btnGreenCar, btnPurpleCar, btnYellowCar, btnRedTruck,
@@ -194,6 +196,8 @@ public class View extends javax.swing.JFrame {
         
         lblMoneyAmt.setText("$" + controller.getMoney());
         userLabelBVal.setText("$" + controller.getMoney());
+        
+        userLabelUVal.setText(c.getCurrentUser());
 
     }
     

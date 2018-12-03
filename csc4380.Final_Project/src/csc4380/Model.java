@@ -37,6 +37,7 @@ public class Model implements Serializable {
     void createUser(String uName, String password) {
         
        status = databaseBean.createUser(uName, password);
+       status = databaseBean.login(uName, password, this);
     }
     
     void login(String uName, String password) {
