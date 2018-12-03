@@ -72,4 +72,7 @@ public class Car extends JLabel implements ActionListener {
             setLocation(nextX, nextY);
         }
     }
+    public void deactivate()
+    {
+    }
 }

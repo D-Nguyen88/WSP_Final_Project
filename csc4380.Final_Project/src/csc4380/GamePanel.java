@@ -46,6 +46,7 @@ public class GamePanel extends javax.swing.JPanel {
     AudioInputStream audioInputStream;
     Clip clip;
     static boolean done;
+    static boolean active = false;
     
 
     public GamePanel() {
@@ -68,10 +69,10 @@ public class GamePanel extends javax.swing.JPanel {
             
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (!done) {
+                if (!done && active) {
                 int num = rand.nextInt(7);
                 int xLoc = num * 100+ 20;
-                System.out.println("Balls");
+                System.out.println(done + "");
                 panel.add(new Car(xLoc, 0, 0, 1, 1, 1, 10, "/src/resources/red_car.png"));
     //            try {
     //                Thread.sleep(1000);
@@ -108,11 +109,22 @@ public class GamePanel extends javax.swing.JPanel {
     public void gameOver(){
         topFrame.setLastScore(currentScore);
         clip.close();
-        topFrame.changeContext("results");
+        //topFrame.changeContext("results");
         Component[] comps = this.getComponents();
         done = true;
+        active = false;
+        currentScore = 0;
+        System.out.println("Done is now " + done);
         this.removeAll();
+        for(Component c : comps)
+        {
+            if(c instanceof Car)
+            {
+                c = null;
+            }     
+        }
         comps = this.getComponents();
+        //topFrame.resetGame();
         topFrame.changeContext("OutOfGame");
 //        for(Component comp : comps)
 //        {
@@ -168,9 +180,13 @@ public class GamePanel extends javax.swing.JPanel {
     private void formComponentShown(java.awt.event.ComponentEvent evt) {                                    
         // TODO add your handling code here:
         generateObstacles(this);
+        active = true;
+        done = false;
+        System.out.println("I'm being shown!");
         topFrame = (View) SwingUtilities.getWindowAncestor(this);
         userCar = new ControlledCar(320, 490, 100, 100, 0, 0, 10, topFrame.getCurrentVehicle());
         this.add(userCar);
+        userCar.repaint();
         userCar.requestFocusInWindow();
         Timer collTime = new Timer(10, new ActionListener() {
             @Override

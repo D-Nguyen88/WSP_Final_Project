@@ -208,6 +208,14 @@ public class View extends javax.swing.JFrame {
     }
     
     
+    
+    public void resetGame()
+    {
+        getContentPane().remove(gamePanel);
+        gamePanel = new GamePanel();
+        getContentPane().add(gamePanel, "gamePanel");
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
