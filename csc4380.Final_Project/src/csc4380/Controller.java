@@ -28,9 +28,10 @@ public class Controller {
         model.setBalance(m);
     }
     
-    void setLastScore(int s)
+    void setLastScore(int s, View v)
     {
         model.addNewScore(s);
+        v.setScores(model.getHighScores());
     }    
         //to be implemented, connected to the model
         

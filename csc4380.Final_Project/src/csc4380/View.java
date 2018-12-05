@@ -236,7 +236,8 @@ public class View extends javax.swing.JFrame {
 
     public void setLastScore(int s)
     {
-        controller.setLastScore(s);
+        controller.setLastScore(s, this);
+        userLabelLVal.setText(s+"");
     }
     public void changeContext(String con)
     {
